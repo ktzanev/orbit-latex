@@ -1,0 +1,10 @@
+payload:
+
+  - key: config
+    value: configuration.toml
+
+  - key: direction
+    value: data/direction.yaml
+
+  - key: equipes
+    value: data/equipes.yaml

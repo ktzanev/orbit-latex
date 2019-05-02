@@ -1,0 +1,9 @@
+## LaTeX specific
+*.aux
+*.log
+*.out
+*.pdf
+
+
+## For this projection
+rapport2019.*

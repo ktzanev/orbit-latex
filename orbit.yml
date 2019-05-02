@@ -1,0 +1,21 @@
+tasks:
+
+  - use: compile
+    short: comile generated latex
+    run:
+      - xelatex {{.Orbit.config.resultat}}.tex
+
+  - use: generate
+    short: generate the latex
+    run:
+      - orbit generate -f {{.Orbit.config.template}}.tex -o {{.Orbit.config.resultat}}.tex
+
+  - use: all
+    short: generate and compile the latex
+    run:
+      - {{ run "generate" "compile"}}
+      - {{ if ne "windows" os -}}
+          xdg-open
+        {{- else -}}
+          start
+        {{- end }} {{.Orbit.config.resultat}}.pdf
