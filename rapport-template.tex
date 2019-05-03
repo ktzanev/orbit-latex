@@ -22,9 +22,12 @@
 % =============================================================
 
 % ---------------
-\title{Example de rapport pour \og {{.Orbit.config.labo}} \fg}
-\author{Mon Nom \and Ton Nom}
-\date{\today}
+\title{Example de rapport pour\dots}
+\author{ {{- .Orbit.config.labo -}} }
+\date{%
+\today\\\bigskip%
+\small\textcolor{red}{[v{{now | date "20060102.030405"}}]}%
+}
 % ---------------
 
 \begin{document}
@@ -34,6 +37,7 @@
 \begin{abstract}
   Ceci est un exemple comment on peut utiliser \href{https://github.com/gulien/orbit}{Orbit} pour générer des rapports \LaTeX{} à partir de données.
 \end{abstract}
+
 
 % --------------------
 
@@ -46,9 +50,9 @@
 \section{Equipes}
 
 {{range .Orbit.equipes}}
-  \subsection{ {{.nom}} }
+  \subsection{ {{- .nom -}} }
 
-  Boss : \textbf{ {{.chef}} }
+  Boss : \textbf{ {{- .chef -}} }
 
   Membres :
     {{.membres | join ", "}}
